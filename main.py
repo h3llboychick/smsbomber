@@ -1,12 +1,11 @@
-import requests
 import json
 import asyncio
-from services import Krendel, Enjoy, Zkz, Korzinavdom, Redpark, Nexiopizza, Mechta, Kino, Sxodim, Dinamarket, Ecco, Only, Viled, Dinamarket, Qfilm, Enbek, Icq, Aptekaplus, Ponyexpress, Kaztour, Chinchin, Amanat, Asko, Basel, Boschcenter, Zenge, Technodom, Dns
+from services import Krendel, Enjoy, Zkz, Korzinavdom, Redpark, Nexiopizza, Mechta, Kino, Sxodim, Dinamarket, Ecco, Only, Viled, Dinamarket, Qfilm, Enbek, Aptekaplus, Kaztour, Chinchin, Amanat, Asko, Basel, Boschcenter, Zenge, Technodom, Dns, Koke, Moneyman, Soso, Tengo, Tomi, Lenstore, Hava
 from loguru import logger
 import sys
 
 async def main(phone):
-	services = [Enjoy, Krendel, Zkz, Korzinavdom, Redpark, Nexiopizza, Mechta, Kino, Sxodim, Dinamarket, Ecco, Only, Viled, Qfilm, Enbek, Icq, Aptekaplus, Ponyexpress, Kaztour, Chinchin, Amanat, Asko, Basel, Boschcenter, Zenge, Technodom, Dns]
+	services = [Krendel, Enjoy, Zkz, Korzinavdom, Redpark, Nexiopizza, Mechta, Kino, Sxodim, Dinamarket, Ecco, Only, Viled, Dinamarket, Qfilm, Enbek, Aptekaplus, Kaztour, Chinchin, Amanat, Asko, Basel, Boschcenter, Zenge, Technodom, Dns, Koke, Moneyman, Soso, Tengo, Tomi, Lenstore, Hava]
 	tasks = []
 	for service in services:
 		tasks.append(service.send_sms(phone))

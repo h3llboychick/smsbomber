@@ -1,4 +1,4 @@
-from base import Service
+from .base import Service
 import aiohttp
 import asyncio
 class Lenstore(Service):

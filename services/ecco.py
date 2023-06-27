@@ -1,7 +1,7 @@
 from .base import Service
 import aiohttp
 import asyncio
-class Kino(Service):
+class Ecco(Service):
 	timeout = 20
 	name = "ecco.kz"
 	def format_number(phone):
@@ -16,4 +16,4 @@ class Kino(Service):
 		return (status, text)
 
 if __name__ == "__main__":
-	Kino.test("+77084872859")
+	Ecco.test("+77084872859")

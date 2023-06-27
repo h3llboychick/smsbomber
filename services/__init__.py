@@ -31,4 +31,10 @@ from .tengo import Tengo
 from .tomi import Tomi
 from .lenstore import Lenstore
 from .hava import Hava
+from .ubet import Ubet
+from .winline import Winline
+from .pandora import Pandora
+from .kupipolis import Kupipolis
+from .lombardb import Lombardb
+from .bigroup import Bigroup
 __all__ = [Krendel, Enjoy, Zkz]

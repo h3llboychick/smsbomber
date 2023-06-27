@@ -1,0 +1,7 @@
+*.txt
+*.cfg
+bin/
+include/
+lib64/
+services/__pycache__
+services/test.py

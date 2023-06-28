@@ -9,7 +9,7 @@ class Service(ABC):
 	def log(func):
 		async def make(self, phone, session: aiohttp.ClientSession): 
 			status, text = await func(self, phone, session)
-			if status in (200, 500, 400, 204):
+			if status in (200, 500, 400, 204, 201):
 				logger.bind(service = self.name).info(f"OK.")
 			else:
 				logger.bind(service = self.name, error = text).error(f"{status} HTTP error")
@@ -20,7 +20,7 @@ class Service(ABC):
 		async with aiohttp.ClientSession() as session:
 			while True:
 				status, text = await self.send_one(self, phone, session)	
-				if status not in (200, 500, 400, 204):
+				if status not in (200, 500, 400, 204, 201):
 					break	
 				await asyncio.sleep(self.timeout)
 	@classmethod	

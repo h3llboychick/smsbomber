@@ -37,4 +37,12 @@ from .pandora import Pandora
 from .kupipolis import Kupipolis
 from .lombardb import Lombardb
 from .bigroup import Bigroup
+from .zeta import Zeta
+from .ayanmarket import Ayanmarket
+from .muzzone import Muzzone
+from .prosklad import Prosklad
+from .tau24 import Tau24
+from .zeta import Zeta
+from .wipon import Wipon
+
 __all__ = [Krendel, Enjoy, Zkz]

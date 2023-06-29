@@ -6,7 +6,7 @@ class Bigroup(Service):
 		return phone
 	async def send_one(self, phone, session):
 		data = {"phoneNumber": self.format_number(phone), "smsType": "0"}
-		return await Service.make_request(session, url = "https://apigw.bi.group/client-identity/api/v1.0/Sms/SendSms", method = "post", json = data)
+		return await self.make_request(session, url = "https://apigw.bi.group/client-identity/api/v1.0/Sms/SendSms", method = "post", json = data)
 
 if __name__ == "__main__":
 	Bigroup.test("+77084872859")

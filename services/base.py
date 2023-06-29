@@ -1,32 +1,20 @@
 from abc import ABC, abstractmethod 
 import asyncio 
 import aiohttp
-from loguru import logger
+from utils import log, configure_logs
 
 class Service(ABC):
 	allowed_methods = ["post", "get"]
 	allowed_statuses = [200]
-	name = None
 
-	def log(func):
-		async def make(self, *args, **kwargs): 
-			status, text = await func(self, *args, **kwargs)
-			service_name =  kwargs["url"] if not self.name else self.name
-			print(self.allowed_statuses)
-			if status in self.allowed_statuses:
-				logger.bind(service = service_name).info(f"OK.")
-			else:
-				logger.bind(service = service_name, error = text).error(f"{status} HTTP error.")
-			await logger.complete()
-			return status
-		return make
-	
+
 	@classmethod	
 	@abstractmethod
 	def format_number(phone: str) -> str:
 		pass
-
+	
 	@classmethod	
+	@log
 	async def make_request(self, session: aiohttp.ClientSession, url:str = "", method: str = "post", data: dict = None, json: dict = None, headers: dict = {}) -> tuple:
 		headers.update({"user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"})
 		if method not in self.allowed_methods:
@@ -41,9 +29,8 @@ class Service(ABC):
 					text = " ".join(text.replace("\r", "").split("\n"))
 				status = response.status
 			return (status, text)
-
 	@abstractmethod
-	async def send_one(self, phone: str, session: aiohttp.ClientSession) -> int:
+	async def send_one(self, phone: str, session: aiohttp.ClientSession) -> tuple:
 		pass	
 
 	@classmethod
@@ -60,4 +47,6 @@ class Service(ABC):
 		async def make_test():
 			async with aiohttp.ClientSession() as session:
 				await self.send_one(self, phone, session)
-		asyncio.run(make_test())			
+		configure_logs()
+		asyncio.run(make_test())
+				

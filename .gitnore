@@ -8,4 +8,4 @@ Scripts/
 services/__pycache__
 services/test.py
 services/Test.py
-utils/__pycache__
+services/utils/__pycache__

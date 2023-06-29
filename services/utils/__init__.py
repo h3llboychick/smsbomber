@@ -1,0 +1,1 @@
+from .logs import log, configure_logs

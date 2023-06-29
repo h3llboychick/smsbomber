@@ -1,9 +1,9 @@
-*.txt
+.env
 *.cfg
 bin/
 include/
 lib64/
 Lib/
-
+Scripts/
 services/__pycache__
 services/test.py

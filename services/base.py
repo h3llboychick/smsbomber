@@ -1,12 +1,12 @@
 from abc import ABC, abstractmethod 
 import asyncio 
 import aiohttp
-from utils import log, configure_logs
+from .utils import log, configure_logs
 
 class Service(ABC):
 	allowed_methods = ["post", "get"]
 	allowed_statuses = [200]
-
+	name = None
 
 	@classmethod	
 	@abstractmethod

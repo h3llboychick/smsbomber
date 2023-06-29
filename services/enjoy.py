@@ -1,4 +1,4 @@
-from base import Service
+from .base import Service
 class Enjoy(Service):
 	timeout = 60
 	name = "enjoydoner.kz"

@@ -6,7 +6,7 @@ class Kino(Service):
 		return phone[1::]
 	async def send_one(self, phone, session):
 		data = {"phone":self.format_number(phone),"email":""}
-		return await Service.make_request(session, url = "https://api.kino.kz/auth/v2/register", method = "post", json = data)
+		return await self.make_request(session, url = "https://api.kino.kz/auth/v2/register", method = "post", json = data)
 
 if __name__ == "__main__":
 	Kino.test("+77084872859")

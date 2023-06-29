@@ -13,7 +13,6 @@ from .only import Only
 from .viled import Viled
 from .qfilm import Qfilm
 from .enbek import Enbek
-#from .ponyexpress import Ponyexpress
 from .aptekaplus import Aptekaplus
 from .kaztour import Kaztour
 from .chinchin import Chinchin

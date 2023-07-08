@@ -15,5 +15,6 @@ def log(func):
 
 def configure_logs():
     logger.remove(0)
-    logger.add(sys.stderr, format = "<green>[{time:YYYY-MM-DD HH:mm:ss:SSS}]</green><blue>[{level}]</blue>[{extra[service]}] - {message}", level = "INFO", colorize = True, filter = lambda record: not record["extra"].get("error", None), enqueue = True)
+    logger.add(sys.stderr, format = "<green>[{time:YYYY-MM-DD HH:mm:ss:SSS}]</green><blue>[{level}]</blue>[{extra[service]}] - {message}", level = "INFO", colorize = True, filter = lambda record: not record["extra"].get("error", None) and record["extra"].get("service", None), enqueue = True)
     logger.add(sys.stderr, format = "<green>[{time:YYYY-MM-DD HH:mm:ss:SSS}]</green><red>[{level}]</red>[{extra[service]}] - {message}\nError text: {extra[error]}", level = "ERROR", colorize = True, enqueue = True)
+    logger.add(sys.stderr, format = "<green>[{time:YYYY-MM-DD HH:mm:ss:SSS}]</green><green>[{level}]</green> - {message}", level = "SUCCESS", filter = lambda record: not record["extra"].get("error", None), colorize = True, enqueue = True)

@@ -61,4 +61,3 @@ class Service(ABC):
 		configure_logs()
 		asyncio.run(make_test())
 				
-Service.format_number("+7(7xx)xxx-xx-xx", "+77084872859")

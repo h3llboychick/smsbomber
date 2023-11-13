@@ -1,5 +1,5 @@
 from .base import Service
-class Dinamarket(Service):
+class Dina(Service):
 	timeout = 60
 	name = "dinamarket.kz"
 	async def send_one(self, phone, session):

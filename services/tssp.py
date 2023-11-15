@@ -1,4 +1,4 @@
-from base import Service
+from .base import Service
 class Tssp(Service):
 	timeout = 30
 	name = "tssp.kz"
